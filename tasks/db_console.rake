@@ -20,7 +20,7 @@ namespace :db do
           system(find_cmd(*%w(mysql5 mysql)),
                  '-u', config["username"],
                  "-p#{config["password"]}",
-                 '-h', config["host"],
+                 '-h', config["host"] || "",
                  '--default-character-set', config["encoding"],
                  '-D', config["database"])
         when "postgresql"
